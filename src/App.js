@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Forecast from './components/Forecast';
+import SearchLocation from './components/SearchLocation';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [coordinates, setCoordinates] = useState({
+		lat: 47.376888,
+		long: 8.541694,
+	});
+	const [city, setCity] = useState('Zürich');
+
+	return (
+		<div className='App'>
+			<div
+				className='
+			header'>
+				Wetter App
+			</div>
+
+			<div className='Widget'>
+				<SearchLocation
+					setCoordinates={setCoordinates}
+					setCity={setCity}
+				/>
+				<Forecast
+					coordinates={coordinates}
+					city={city}
+				/>
+			</div>
+		</div>
+	);
 }
 
 export default App;

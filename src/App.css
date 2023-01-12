@@ -1,38 +1,148 @@
-.App {
-  text-align: center;
+body {
+	background-color: #76acea;
+	width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Widget {
+	text-align: center;
+	max-width: 1000px;
+	flex-direction: column;
+	position: absolute;
+	transform: translateX(-50%);
+	left: 50%;
+	display: flex;
+	gap: 1rem;
+	width: calc(100% - 3rem);
+	margin-top: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+	font-weight: 300;
+	color: white;
+	background-color: rgb(30, 30, 140);
+	padding: 0.5rem;
+	font-size: 2rem;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 50;
+	padding: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2 {
+	font-weight: 300;
+	margin: 1rem 0 0;
+	font-size: 3rem;
+	color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+	/* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+	/* padding: 2rem; */
+	border-radius: 1rem;
+	/* background-color: rgba(255, 255, 255, 0.3); */
+	display: flex;
+	margin-bottom: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error {
+	color: rgb(255, 77, 0);
+	font-weight: 500;
+}
+
+.itemsForDate {
+	display: flex;
+	flex-direction: column;
+	flex: auto;
+}
+
+.dateHeadline {
+	color: rgb(30, 30, 140);
+	font-weight: 300;
+	font-size: 2rem;
+	padding: 2rem 0 1rem;
+	text-align: left;
+}
+
+.tiles {
+	display: grid;
+	gap: 1rem;
+	flex-direction: column;
+	grid-template-columns: 1fr 1fr 1fr;
+	background-color: white;
+	border-radius: 1rem;
+	padding: 1rem;
+}
+
+@media screen and (min-width: 920px) {
+	.tiles {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	.tile:nth-child(4n) {
+		border-right: none;
+	}
+}
+@media screen and (max-width: 919px) {
+	.tile:nth-child(3n) {
+		border-right: none;
+	}
+}
+.tile {
+	border-right: 1px solid #eee;
+}
+
+.tile .time {
+	font-weight: 300;
+	text-align: left;
+	padding: 0.2rem;
+	font-size: 1.2rem;
+	color: #999;
+}
+
+.tile .temperature {
+	color: rgb(30, 30, 140);
+	font-size: 1.8rem;
+	font-weight: 700;
+	padding: 0.5rem 0 1rem;
+}
+
+.searchLocation {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.searchLocation input {
+	padding: 1rem;
+	border-radius: 2rem;
+	font-size: 16px;
+	outline: none;
+	border: none;
+	flex-grow: 1;
+}
+
+.searchLocation button {
+	border-radius: 2rem;
+	border: none;
+	background-color: rgb(30, 30, 140);
+	color: white;
+	font-size: 16px;
+	padding: 1rem 2rem;
+	font-weight: 600;
+	cursor: pointer;
+	min-width: 150px;
+
+	transition: all 300ms ease-in-out;
+}
+
+.searchLocation button:hover {
+	background-color: rgb(61, 61, 170);
+}
+
+@media screen and (min-width: 720px) {
+	.App {
+		width: calc(100% - 10rem);
+	}
 }
